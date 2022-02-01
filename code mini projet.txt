@@ -1,0 +1,922 @@
+code xml:
+interface1:
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/iphone_x__xs__11_pro__1"
+    >
+    <TextView
+        android:id="@+id/Aceuil"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/cherry_cream_soda"
+        android:text="Acceuil"
+        android:textColor="@color/black"
+        android:textSize="36dp" />
+
+    <ImageView
+        android:id="@+id/acceuil1"
+        android:layout_width="50dp"
+        android:layout_height="52dp"
+        android:background="@drawable/ic_baseline_home_24"
+        android:backgroundTint="@color/black"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/sgn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/acceuil1"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/cherry_cream_soda"
+        android:gravity="center"
+        android:text="NOTER VOS ABSENCES"
+        android:textColor="@color/black"
+        android:textSize="40dp" />
+
+    <ImageView
+        android:id="@+id/etd"
+        android:layout_width="84dp"
+        android:layout_height="94dp"
+        android:layout_below="@+id/sgn"
+        android:layout_marginTop="49dp"
+        android:background="@drawable/etudiant_diplome" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sgn"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bnt_background"
+        android:gravity="center"
+        android:padding="34dp"
+        android:text="ETUDIANT"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/prf"
+        android:layout_width="86dp"
+        android:layout_height="89dp"
+        android:layout_below="@+id/etd"
+        android:layout_marginTop="54dp"
+        android:background="@drawable/prof" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text1"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bnt_background"
+        android:gravity="center"
+        android:layout_marginStart="100dp"
+        android:padding="34dp"
+        android:text="PROFESSEURS"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/admn"
+        android:layout_width="88dp"
+        android:layout_height="91dp"
+        android:layout_below="@+id/prf"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/admin_avec_roues_dentees"/>
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text2"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bnt_background"
+        android:gravity="center"
+        android:padding="34dp"
+        android:text="ADMIN"
+        android:layout_marginStart="100dp"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
+code java :
+package com.example.miniprojet3;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+    TextView text1,text2,text3;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toast.makeText(MainActivity.this,"connexion ", Toast.LENGTH_SHORT).show();
+        text1 =(TextView) findViewById(R.id.text1);
+        text2 = (TextView) findViewById(R.id.text2);
+        text3=(TextView)findViewById(R.id.text3);
+        text1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent txt1 = new Intent(MainActivity.this,login_etud.class);
+                startActivity(txt1);
+            }
+        });
+        text2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent txt2 = new Intent(MainActivity.this,login_prof.class);
+                startActivity(txt2);
+            }
+        });
+        text3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent txt3 = new Intent(MainActivity.this,login_etud.class);
+                startActivity(txt3);
+            }
+        });
+    }
+
+interface 2:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login_etud"
+    android:background="@drawable/iphone_x__xs__11_pro__1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:fontFamily="@font/cherry_cream_soda"
+        android:gravity="center"
+        android:text="authentification"
+        android:textSize="36dp" />
+
+    <ImageView
+        android:id="@+id/auth"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/personne" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:background="#E47A7A"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer votre CNE"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/email"
+        android:layout_marginTop="27dp"
+        android:background="#E47A7A"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer votre mot de passe"
+        android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/signin"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bnt_background"
+        android:fontFamily="@font/amiko"
+        android:gravity="center"
+        android:text="SIGN IN"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/inscrire1"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_below="@+id/signin"
+        android:layout_marginTop="19dp"
+        android:layout_marginStart="65dp"
+        android:text="NEW USER ? SIGN UP"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/forgetpassword1"
+        android:layout_width="140dp"
+        android:layout_height="18dp"
+        android:layout_below="@+id/signin"
+        android:layout_marginTop="19dp"
+        android:text="FORGET PASSWORD"
+        android:textColor="@color/black"
+        android:layout_marginStart="220dp"/>
+code java:
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+public class login_etud extends AppCompatActivity implements View.OnClickListener {
+    private TextView signbtn,signupbtn,forget_pass;
+    private EditText memail,motdepasse;
+    private FirebaseAuth fauth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login_etud);
+        signbtn = (TextView) findViewById(R.id.signin);
+        signupbtn = (TextView) findViewById(R.id.inscrire1);
+        memail=(EditText) findViewById(R.id.email);
+        motdepasse=(EditText) findViewById(R.id.password);
+        forget_pass=(TextView) findViewById(R.id.forgetpassword1);
+        fauth=FirebaseAuth.getInstance();
+        signbtn.setOnClickListener(this);
+        signupbtn.setOnClickListener(this);
+        forget_pass.setOnClickListener(this);
+
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.inscrire1:
+                startActivity(new Intent(getApplicationContext(),Register_etud.class));
+                break;
+            case R.id.forgetpassword1:
+                startActivity(new Intent(getApplicationContext(),forgot_password.class));
+                break;
+            case R.id.signin:
+                userlogin();
+                break;
+
+        }
+    }
+private void userlogin(){
+   String email=memail.getText().toString().trim();
+   String password=motdepasse.getText().toString().trim();
+    if(email.isEmpty()){
+        memail.setError("email is required");
+        memail.requestFocus();
+        return;
+    }
+    if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        memail.setError("please provid a valid email");
+        memail.requestFocus();
+        return;
+    }
+    if(password.isEmpty()){
+        motdepasse.setError("password is required");
+        motdepasse.requestFocus();
+        return;
+    }
+    if ((password.length()<6)){
+        motdepasse.setError("Min password length should be 6 characters!");
+        motdepasse.requestFocus();
+        return;}
+    fauth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        @Override
+        public void onComplete(@NonNull Task<AuthResult> task) {
+
+            if(task.isSuccessful()){
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if(user.isEmailVerified()){
+                    startActivity(new Intent(login_etud.this,profile_etudiant.class));
+                }
+                else{
+                    user.sendEmailVerification();
+                    Toast.makeText(login_etud.this,"check your email to verify your account",Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                Toast.makeText(login_etud.this,"failed to login! please check your credentials!",Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    });
+
+   }
+
+}
+interface3:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_etud"
+    android:background="@drawable/iphone_x__xs__11_pro__1">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:text="authentification"
+        android:textSize="36dp"
+        android:id="@+id/authe1"
+        android:fontFamily="@font/cherry_cream_soda"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/authe1"
+        android:text="Create New Account"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cherry_cream_soda"/>
+
+    <EditText
+        android:id="@+id/nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le nom"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/prénom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nom"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le prénom"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/CNE1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prénom"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le CNE"
+        android:padding="15dp" />
+    <EditText
+        android:id="@+id/Classe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/CNE1"
+        android:drawableLeft="@drawable/ic_baseline_class_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer votre classe"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Classe"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer l'email"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Email"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="17dp"
+        android:hint="créer un mot de passe"
+        android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/inscrire4"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/password1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bnt_background"
+        android:fontFamily="@font/amiko"
+        android:gravity="center"
+        android:text="SIGN UP"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+</RelativeLayout>
+
+code java:
+package com.example.miniprojet3;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Locale;
+
+public class Register_etud extends AppCompatActivity implements View.OnClickListener {
+    private EditText nom,prenom,classe,cne,memail,motdepasse;
+    private TextView inscrire4;
+    FirebaseAuth fauth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register_etud);
+        nom=(EditText) findViewById(R.id.nom);
+        prenom= (EditText) findViewById(R.id.prénom);
+        classe=(EditText) findViewById(R.id.Classe);
+        cne=(EditText) findViewById(R.id.CNE1);
+        memail=(EditText) findViewById(R.id.Email);
+        motdepasse= findViewById(R.id.password1);
+        fauth= FirebaseAuth.getInstance();
+        inscrire4 = (TextView) findViewById(R.id.inscrire4);
+        inscrire4.setOnClickListener(this);
+
+
+       }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.inscrire4:
+                registeruser();
+                break;
+        }
+
+    }
+    private void registeruser(){
+        String Nom=nom.getText().toString().trim();
+        String Prenom=prenom.getText().toString().trim();
+        String Class=classe.getText().toString().trim();
+        String Cne=cne.getText().toString().trim();
+        String email=memail.getText().toString().trim();
+        String password=motdepasse.getText().toString().trim();
+        if(Nom.isEmpty()){
+        nom.setError("name is required");
+        nom.requestFocus();
+        return;
+        }
+        if(Prenom.isEmpty()){
+            prenom.setError("prenoun is required");
+            prenom.requestFocus();
+            return;
+        }
+        if(Cne.isEmpty()){
+            cne.setError("CNE is required");
+            cne.requestFocus();
+            return;
+        }
+        if(Class.isEmpty()){
+            classe.setError("class is required");
+            classe.requestFocus();
+            return;
+        }
+        if(email.isEmpty()){
+            memail.setError("email is required");
+            memail.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            memail.setError("please provid a valid email");
+            memail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            motdepasse.setError("password is required");
+            motdepasse.requestFocus();
+            return;
+        }
+        if ((password.length()<6)){
+            motdepasse.setError("Min password length should be 6 characters!");
+            motdepasse.requestFocus();
+            return;
+        }
+        fauth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            User user =new User(Nom,Prenom,Cne,Class,email);
+                                FirebaseDatabase.getInstance().getReference("Users")
+                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(Register_etud.this,"A student has been created succesfully!",Toast.LENGTH_SHORT).show();
+                                        }
+                                        else {
+                                            Toast.makeText(Register_etud.this, "failed to register! try again!", Toast.LENGTH_SHORT).show();
+                                        }
+                                        }
+
+                                });
+                        }
+                        else{
+                            Toast.makeText(Register_etud.this, "failed to register! try again!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
+}
+
+interface 4:
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".forgot_password"
+    android:background="@drawable/iphone_x__xs__11_pro__1">
+
+    <EditText
+        android:id="@+id/email3"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        android:ems="10"
+        android:hint="enter your email"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        tools:ignore="MissingConstraints"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="19dp"/>
+
+    <TextView
+        android:id="@+id/reset"
+        android:layout_width="142dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bnt_background"
+        android:fontFamily="@font/amiko"
+        android:gravity="center"
+        android:text="Reset Password"
+        android:textColor="@color/black"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email3"
+        app:layout_constraintVertical_bias="0.137"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="134dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+code java:
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class forgot_password extends AppCompatActivity {
+    private EditText edit1;
+    private TextView resetpassword;
+    FirebaseAuth auth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forgot_password);
+        edit1=(EditText) findViewById(R.id.email3);
+        resetpassword=(TextView) findViewById(R.id.reset);
+        auth=FirebaseAuth.getInstance();
+        resetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetpasword();
+            }
+        });
+    }
+    private void resetpasword(){
+        String email=edit1.getText().toString().trim();
+        if(email.isEmpty()){
+            edit1.setError("email is required");
+            edit1.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            edit1.setError("please provid a valid email");
+            edit1.requestFocus();
+            return;
+        }
+        auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(forgot_password.this,"check your email to reset your password",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(forgot_password.this,"try agin! something wrong happened",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+    }
+}
+interface 5:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Register_etud"
+    android:background="@drawable/iphone_x__xs__11_pro__1">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:gravity="center"
+        android:text="authentification"
+        android:textSize="36dp"
+        android:id="@+id/authe1"
+        android:fontFamily="@font/cherry_cream_soda"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/authe1"
+        android:text="Create New Account"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/cherry_cream_soda"/>
+
+    <EditText
+        android:id="@+id/nom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le nom"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/prénom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nom"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le prénom"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/CNE1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/prénom"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer le matricule"
+        android:padding="15dp" />
+    <EditText
+        android:id="@+id/Classe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/CNE1"
+        android:drawableLeft="@drawable/ic_baseline_class_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer votre Matière"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Classe"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:drawablePadding="17dp"
+        android:hint="entrer l'email"
+        android:padding="15dp" />
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Email"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="17dp"
+        android:hint="créer un mot de passe"
+        android:padding="15dp" />
+
+    <TextView
+        android:id="@+id/inscrire4"
+        android:layout_width="160dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/password1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bnt_background"
+        android:fontFamily="@font/amiko"
+        android:gravity="center"
+        android:text="SIGN UP"
+        android:textColor="#000000"
+        android:textSize="18dp" />
+</RelativeLayout>
+code java:
+package com.example.miniprojet3;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Patterns;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+
+public class register_prof extends AppCompatActivity implements View.OnClickListener{
+    private EditText nom,prenom,classe,Matricule,memail,motdepasse;
+    private TextView inscrire4;
+    FirebaseAuth fauth;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register_prof);
+        nom=(EditText) findViewById(R.id.nom);
+        prenom= (EditText) findViewById(R.id.prénom);
+        classe=(EditText) findViewById(R.id.Classe);
+        Matricule=(EditText) findViewById(R.id.matricule);
+        memail=(EditText) findViewById(R.id.Email);
+        motdepasse= findViewById(R.id.password1);
+        fauth= FirebaseAuth.getInstance();
+        inscrire4 = (TextView) findViewById(R.id.inscrire4);
+        inscrire4.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.inscrire4:
+                registeruser();
+                break;
+        }
+
+    }
+    private void registeruser(){
+        String Nom=nom.getText().toString().trim();
+        String Prenom=prenom.getText().toString().trim();
+        String Class=classe.getText().toString().trim();
+        String matricule=Matricule.getText().toString();
+        String email=memail.getText().toString().trim();
+        String password=motdepasse.getText().toString().trim();
+        if(Nom.isEmpty()){
+            nom.setError("name is required");
+            nom.requestFocus();
+            return;
+        }
+        if(Prenom.isEmpty()){
+            prenom.setError("prenoun is required");
+            prenom.requestFocus();
+            return;
+        }
+        if(matricule.isEmpty()){
+            Matricule.setError("CNE is required");
+            Matricule.requestFocus();
+            return;
+        }
+        if(Class.isEmpty()){
+            classe.setError("class is required");
+            classe.requestFocus();
+            return;
+        }
+        if(email.isEmpty()){
+            memail.setError("email is required");
+            memail.requestFocus();
+            return;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            memail.setError("please provid a valid email");
+            memail.requestFocus();
+            return;
+        }
+        if(password.isEmpty()){
+            motdepasse.setError("password is required");
+            motdepasse.requestFocus();
+            return;
+        }
+        if ((password.length()<6)){
+            motdepasse.setError("Min password length should be 6 characters!");
+            motdepasse.requestFocus();
+            return;
+        }
+        fauth.createUserWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            User user1 =new User(Nom,Prenom,matricule,Class,email);
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(register_prof.this,"A student has been created succesfully!",Toast.LENGTH_SHORT).show();
+                                    }
+                                    else {
+                                        Toast.makeText(register_prof.this, "failed to register! try again!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            });
+                        }
+                        else{
+                            Toast.makeText(register_prof.this, "failed to register! try again!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+    }
+}
+    }
+}
+
